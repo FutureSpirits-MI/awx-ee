@@ -8,7 +8,7 @@ on:
 
 jobs:
   build_and_push_latest:
-    runs-on: self-host
+    runs-on: self-hosted
     name: Build and push latest tag from devel and on new commits
     steps:
       - uses: actions/checkout@v2
