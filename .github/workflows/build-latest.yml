@@ -33,9 +33,9 @@ jobs:
         env:
           DOCKER_BUILDKIT: 1
         run: |
-          tox -e docker -- --tag=ghcr.io/FutureSpirits-MI/awx-ee:latest
+          tox -e docker -- --tag=ghcr.io/${{ steps.owner.outputs.owner_lc }}/awx-ee:latest
 
       - name: Push images
         run: |
          echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
-         docker push ghcr.io/FutureSpirits-MI/awx-ee:latest
+         docker push ghcr.io/${{ steps.owner.outputs.owner_lc }}/awx-ee:latest
